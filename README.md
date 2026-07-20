@@ -8,4 +8,4 @@ These are my beginner friendly python projects.
 * **Projectile Motion Calc:** Simulates kinematics formulas to find total flight time, maximum height, and horizontal range.
 * **Turtle Rainbow Flower:** A colorful script showcasing Python's native turtle graphics and HSV-to-RGB color mapping.
 
-![](https://komarev.com/ghpvc/?username=KamyaUpadhyay-dev&style=flat-square)
+
