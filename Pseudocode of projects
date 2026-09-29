@@ -1,45 +1,46 @@
 # Pseudocode of Python Projects
 
-Simple and concise pseudocode for all projects in this repository.
+pseudocode for all projects in this repository.
+----------------------------------------------------------------------------------
 
-## 1. Molarity Calculator
-```text
+ 1. Molarity Calculator
+
 START
 DISPLAY "Molarity Calculator"
 REPEAT
   INPUT moles or "exit"
   IF input is "exit" → STOP
   INPUT volume in mL
-  IF volume <= 0 → DISPLAY error and CONTINUE
+  IF volume <= 0, DISPLAY error and CONTINUE
   CONVERT mL to liters
   CALCULATE molarity = moles / liters
   DISPLAY molarity rounded to 4 decimals
 UNTIL stopped
 END
-```
+----------------------------------------------------------------------------------
 
 ## 2. Phone Number Details
-```text
+
 START
 IMPORT phone number library
 DEFINE GET_PHONE(number)
   PARSE the number
-  IF number is invalid → RETURN error
+  IF number is invalid, RETURN error
   FIND number type, location, carrier, and time zones
   RETURN the details
 END FUNCTION
 CALL GET_PHONE with the given number
 DISPLAY the details
 END
-```
+----------------------------------------------------------------------------------
 
 ## 3. Projectile Motion Calculator
-```text
+
 START
 SET gravity = 9.81 m/s²
 REPEAT
   INPUT initial velocity or "exit"
-  IF input is "exit" → STOP
+  IF input is "exit", STOP
   INPUT launch angle
   CONVERT angle to radians
   CALCULATE horizontal and vertical velocity
@@ -48,28 +49,28 @@ REPEAT
   OPTIONALLY calculate height at a given time
 UNTIL stopped
 END
-```
+----------------------------------------------------------------------------------
 
 ## 4. Projectile Ball Simulation
-```text
+
 START
 IMPORT Pygame and create the game window
 SET gravity, ball position, velocity, and launch position
 WHILE game is running
   CHECK keyboard/mouse events
-  IF mouse is pressed → START dragging
-  IF mouse is released → CALCULATE launch velocity and START flight
-  IF ball is flying → APPLY gravity and UPDATE position
+  IF mouse is pressed, START dragging
+  IF mouse is released, CALCULATE launch velocity and START flight
+  IF ball is flying, APPLY gravity and UPDATE position
   IF ball hits ground or leaves screen → RESET ball
   DRAW ground, ball, and launch line
   UPDATE screen at 60 FPS
 END WHILE
 QUIT Pygame
 END
-```
+----------------------------------------------------------------------------------
 
 ## 5. Time-Angle Sun-Earth Calculation
-```text
+
 START
 SET total degrees = 360 and total hours = 24
 CALCULATE hours per degree
@@ -77,10 +78,10 @@ CONVERT hours per degree to minutes
 CALCULATE time for 5 degrees
 DISPLAY all calculated values
 END
-```
+----------------------------------------------------------------------------------
 
 ## 6. Turtle Rainbow Flower
-```text
+
 START
 IMPORT Turtle and Colorsys
 SET drawing speed and black background
@@ -90,15 +91,20 @@ REPEAT 16 times
     CONVERT HSV color to RGB and set turtle color
     INCREASE hue
     DRAW two circular arcs to form a petal
-    TURN turtle 180°
+    TURN turtle 180 degree
   END REPEAT
   DRAW an arc to move to the next section
 END REPEAT
 KEEP the window open
 END
-```
+----------------------------------------------------------------------------------
 
 ## General Flow
-```text
-START → INPUT/SET VALUES → PROCESS/CALCULATE → DISPLAY/DRAW → REPEAT IF NEEDED → END
-```
+
+1. START
+2. INPUT/SET VALUES
+3. PROCESS/CALCULATE
+4. DISPLAY/DRAW
+5. REPEAT IF NEEDED
+6. END
+----------------------------------------------------------------------------------
