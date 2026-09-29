@@ -1,0 +1,60 @@
+# Pseudocode: Molarity Calculator
+'''
+START
+
+DISPLAY "Molarity Calculator"
+
+REPEAT FOREVER
+
+    TRY
+
+        ASK user to enter the number of moles
+        STORE input as moles
+
+        IF the user wants to exit THEN
+            STOP the program
+        END IF
+
+        ASK user to enter the volume of solution in milliliters
+        STORE input as volume_ml
+
+        IF volume_ml is less than or equal to 0 THEN
+            DISPLAY "Error: Volume must be greater than zero."
+            CONTINUE to the next calculation
+        END IF
+
+        CONVERT volume from milliliters to liters
+            volume_liters = volume_ml / 1000
+
+        CALCULATE molarity
+            molarity = moles / volume_liters
+
+        ROUND molarity to 4 decimal places
+
+        DISPLAY the calculated molarity in mol/L
+
+    IF the user enters invalid numerical data THEN
+        DISPLAY "Error: Please enter valid numbers."
+    END TRY
+
+    DISPLAY "Type 'exit' to quit or enter new values to calculate again"
+
+END REPEAT
+
+END
+'''
+
+### Formula
+
+**Molarity = moles of solute ÷ volume of solution in liters**
+
+### Program Flow
+
+Input moles
+Input volume
+Validate volume
+Convert mL to L
+Calculate molarity
+Display result
+Repeat/Exit
+* Error message if volume is zero or negative
