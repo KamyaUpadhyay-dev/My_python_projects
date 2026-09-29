@@ -1,346 +1,104 @@
 # Pseudocode of Python Projects
 
-This file contains the pseudocode for the Python projects in this repository.
+Simple and concise pseudocode for all projects in this repository.
 
----
-
-# 1. Molarity Calculator
-
+## 1. Molarity Calculator
 ```text
 START
-
 DISPLAY "Molarity Calculator"
-
-REPEAT FOREVER
-
-    ASK user to enter number of moles
-    STORE input as moles
-
-    IF user wants to exit
-        EXIT program
-    END IF
-
-    ASK user to enter volume of solution in mL
-    STORE input as volume_ml
-
-    IF volume_ml <= 0
-        DISPLAY "Error: Volume must be greater than zero."
-        CONTINUE
-    END IF
-
-    CONVERT volume from mL to liters
-        volume_liters = volume_ml / 1000
-
-    CALCULATE molarity
-        molarity = moles / volume_liters
-
-    ROUND molarity to 4 decimal places
-
-    DISPLAY calculated molarity
-
-    DISPLAY "Type 'exit' to quit or enter new values to calculate again"
-
-IF invalid numerical input is entered
-    DISPLAY "Error: Please enter valid numbers."
-
-END REPEAT
-
+REPEAT
+  INPUT moles or "exit"
+  IF input is "exit" → STOP
+  INPUT volume in mL
+  IF volume <= 0 → DISPLAY error and CONTINUE
+  CONVERT mL to liters
+  CALCULATE molarity = moles / liters
+  DISPLAY molarity rounded to 4 decimals
+UNTIL stopped
 END
 ```
 
----
-
-# 2. Phone Number Details
-
+## 2. Phone Number Details
 ```text
 START
-
-IMPORT phone number library and required functions
-
-DEFINE function GET_PHONE(number)
-
-    TRY
-        PARSE the phone number
-
-        IF the phone number is invalid
-            RETURN an error message
-        END IF
-
-        DETERMINE the phone number type
-
-        IF type is MOBILE
-            SET type name to "Mobile"
-        ELSE IF type is FIXED_LINE
-            SET type name to "Landline"
-        ELSE IF type is FIXED_LINE_OR_MOBILE
-            SET type name accordingly
-        ELSE IF type is VOIP
-            SET type name to "VoIP"
-        ELSE IF type is TOLL_FREE
-            SET type name to "Toll-free"
-        ELSE
-            SET type name to "Unknown"
-        END IF
-
-        GET location of the number
-        GET carrier of the number
-        GET time zones of the number
-
-        RETURN all phone number details
-
-    IF an error occurs
-        RETURN the error message
-    END TRY
-
+IMPORT phone number library
+DEFINE GET_PHONE(number)
+  PARSE the number
+  IF number is invalid → RETURN error
+  FIND number type, location, carrier, and time zones
+  RETURN the details
 END FUNCTION
-
-CALL GET_PHONE with the given phone number
-
-DISPLAY the returned information
-
+CALL GET_PHONE with the given number
+DISPLAY the details
 END
 ```
 
----
-
-# 3. Projectile Motion Calculator
-
+## 3. Projectile Motion Calculator
 ```text
 START
-
-SET gravitational acceleration g = 9.81 m/s²
-
-DISPLAY "Detailed Projectile Motion Calculator"
-
-REPEAT FOREVER
-
-    ASK user for initial velocity
-
-    IF user enters "exit"
-        EXIT program
-    END IF
-
-    ASK user for launch angle in degrees
-
-    CONVERT angle from degrees to radians
-
-    CALCULATE horizontal velocity
-        vx = v × cos(angle)
-
-    CALCULATE vertical velocity
-        vy = v × sin(angle)
-
-    CALCULATE total time of flight
-        time_of_flight = (2 × vy) / g
-
-    CALCULATE maximum height
-        max_height = vy² / (2 × g)
-
-    CALCULATE horizontal range
-        horizontal_range = vx × time_of_flight
-
-    DISPLAY total flight time
-    DISPLAY maximum height
-    DISPLAY horizontal range
-
-    ASK user whether to check height at a specific time
-
-    IF user enters a time
-        CALCULATE height at that time
-            height = (vy × t) - (0.5 × g × t²)
-
-        IF t > time_of_flight
-            DISPLAY that the object has already hit the ground
-        ELSE
-            DISPLAY height at the given time
-        END IF
-    END IF
-
-IF invalid numerical input is entered
-    DISPLAY "Error: Please enter numbers only."
-
-END REPEAT
-
+SET gravity = 9.81 m/s²
+REPEAT
+  INPUT initial velocity or "exit"
+  IF input is "exit" → STOP
+  INPUT launch angle
+  CONVERT angle to radians
+  CALCULATE horizontal and vertical velocity
+  CALCULATE flight time, maximum height, and range
+  DISPLAY the results
+  OPTIONALLY calculate height at a given time
+UNTIL stopped
 END
 ```
 
----
-
-# 4. Projectile Ball Simulation
-
+## 4. Projectile Ball Simulation
 ```text
 START
-
-IMPORT PYGAME
-
-INITIALIZE Pygame
-SET screen width and height
-CREATE game window
-CREATE clock
-
-SET colors
-SET gravity
-SET launch position
-SET initial ball position
-SET initial ball velocity
-SET flying state to FALSE
-SET dragging state to FALSE
-
-SET running to TRUE
-
-WHILE running is TRUE
-
-    CLEAR the screen
-    DRAW the ground
-    GET current mouse position
-
-    FOR each event
-
-        IF event is QUIT
-            SET running to FALSE
-        END IF
-
-        IF mouse button is pressed AND ball is not flying
-            SET dragging to TRUE
-        END IF
-
-        IF mouse button is released AND ball is being dragged
-            SET dragging to FALSE
-            SET flying to TRUE
-
-            CALCULATE ball velocity from the drag distance
-        END IF
-
-    END FOR
-
-    IF ball is flying
-
-        APPLY gravity to vertical velocity
-
-        UPDATE horizontal position
-        UPDATE vertical position
-
-        IF ball hits the ground OR goes off screen
-            SET flying to FALSE
-            RESET ball to launch position
-            RESET velocity to zero
-        END IF
-
-    END IF
-
-    IF ball is being dragged
-        DRAW line from launch point to mouse position
-        DRAW ball at mouse position
-    ELSE
-        DRAW ball at its current position
-    END IF
-
-    DRAW launch point
-
-    UPDATE the display
-    LIMIT the game to 60 frames per second
-
+IMPORT Pygame and create the game window
+SET gravity, ball position, velocity, and launch position
+WHILE game is running
+  CHECK keyboard/mouse events
+  IF mouse is pressed → START dragging
+  IF mouse is released → CALCULATE launch velocity and START flight
+  IF ball is flying → APPLY gravity and UPDATE position
+  IF ball hits ground or leaves screen → RESET ball
+  DRAW ground, ball, and launch line
+  UPDATE screen at 60 FPS
 END WHILE
-
 QUIT Pygame
-
 END
 ```
 
----
-
-# 5. Time and Angle — Sun/Earth
-
+## 5. Time-Angle Sun-Earth Calculation
 ```text
 START
-
-SET total degrees = 360
-SET total hours = 24
-
-CALCULATE hours corresponding to 1 degree
-    hours_per_degree = total_hours / total_degrees
-
+SET total degrees = 360 and total hours = 24
+CALCULATE hours per degree
 CONVERT hours per degree to minutes
-    minutes_per_degree = hours_per_degree × 60
-
 CALCULATE time for 5 degrees
-    time_for_5_degrees = minutes_per_degree × 5
-
-DISPLAY hours per degree
-DISPLAY minutes per degree
-DISPLAY time for 5 degrees
-
+DISPLAY all calculated values
 END
 ```
 
----
-
-# 6. Turtle Rainbow Flower
-
+## 6. Turtle Rainbow Flower
 ```text
 START
-
-IMPORT Turtle library
-IMPORT Colorsys library
-
-SET turtle drawing speed to maximum
-SET background color to black
-
-SET hue h = 0
-
+IMPORT Turtle and Colorsys
+SET drawing speed and black background
+SET hue = 0
 REPEAT 16 times
-
-    REPEAT 18 times
-
-        CONVERT HSV color values to RGB
-        SET turtle color
-
-        INCREASE hue slightly
-
-        TURN turtle right by 90 degrees
-        DRAW a circular arc
-
-        TURN turtle left by 90 degrees
-        DRAW another circular arc
-
-        TURN turtle by 180 degrees
-
-    END REPEAT
-
-    DRAW a circular arc to move to the next flower section
-
+  REPEAT 18 times
+    CONVERT HSV color to RGB and set turtle color
+    INCREASE hue
+    DRAW two circular arcs to form a petal
+    TURN turtle 180°
+  END REPEAT
+  DRAW an arc to move to the next section
 END REPEAT
-
-KEEP the turtle window open
-
+KEEP the window open
 END
 ```
 
----
-
-# General Project Flow
-
+## General Flow
 ```text
-START
-   ↓
-GET INPUT / SET INITIAL VALUES
-   ↓
-VALIDATE INPUT (if required)
-   ↓
-PROCESS / CALCULATE
-   ↓
-DISPLAY RESULT / DRAW OUTPUT
-   ↓
-REPEAT (if required)
-   ↓
-END
+START → INPUT/SET VALUES → PROCESS/CALCULATE → DISPLAY/DRAW → REPEAT IF NEEDED → END
 ```
-
----
-
-# Notes
-
-- The pseudocode describes the logic of the projects rather than Python syntax.
-- The Molarity Calculator currently converts the moles input to a number before checking for the text `exit`, so the exit check needs to be fixed in the Python code.
-- The Phone Number Details project currently uses a fixed `+91` input rather than asking the user for a number.
-- The Time and Angle project calculates the time for 5 degrees, despite the original variable name/comment referring to 2 degrees.
